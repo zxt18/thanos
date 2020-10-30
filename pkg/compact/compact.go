@@ -728,7 +728,7 @@ func (cg *Group) compact(ctx context.Context, dir string, comp tsdb.Compactor) (
 		}
 
 		// Ensure all input blocks are valid.
-		stats, err := block.GatherIndexIssueStats(cg.logger, filepath.Join(pdir, block.IndexFilename), meta.MinTime, meta.MaxTime)
+		stats, err := block.GatherIndexHealthStats(cg.logger, filepath.Join(pdir, block.IndexFilename), meta.MinTime, meta.MaxTime)
 		if err != nil {
 			return false, ulid.ULID{}, errors.Wrapf(err, "gather index issues for block %s", pdir)
 		}
